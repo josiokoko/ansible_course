@@ -1,0 +1,14 @@
+---
+- name: Installing Apache
+  gather_facts: true
+  vars_files:
+    - "apache_default.yml"
+    - "apache_{{ ansible_os_family }}.yml" 
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install apache
+      package:
+        name: "{{ apache }}"
+        state: latest

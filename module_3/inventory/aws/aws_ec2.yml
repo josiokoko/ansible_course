@@ -1,0 +1,16 @@
+plugin: amazon.aws.aws_ec2
+aws_profile: default
+regions: # list of stuffs or items 
+  - us-east-1
+  - us-east-2
+  - us-west-1
+filters:
+  instance-state-name: running
+  tag:Name:
+    - Ubuntu
+    - Amazon2
+keyed_groups:
+  - prefix: tag
+    key: tags
+  - key: placement.region
+    prefix: aws_region

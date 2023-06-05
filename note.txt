@@ -1,0 +1,49 @@
+Ansible Installation & Configuration
+	- Control node and managed hosts/remote servers
+	- inventory (static or dynamic (aws_ec2 plugins))
+
+Ansible ad-hoc commands
+	- modules
+
+Ansible playbook.yml
+
+Ansible roles / Ansible galaxy
+
+
+
+Ansible role:
+
+	mkdir prometheus_role && cd prometheus_role
+		touch playbook.yml
+		ansible-galaxy init roles/prometheus
+	
+	Web Deployment with Nginx and Ansible
+
+Ansible Vault
+	- Handling security info in Ansible 
+
+	ansible-vault decrypt secret.yml
+
+	ansible-vault encrypt secret.yml
+
+	ansible-playbook playbook.yml --ask-vault-pass
+
+Ansible galaxy
+		- remote repository for your Ansible role 
+		- Share your roles with the public
+
+Playbook => Ansible role
+
+Ansible => aws ec2 provisioning
+			Ansible is not a good provisioning tool compared to Terraform
+
+Ansible Tags
+
+Prometheus	
+	- Node_exporter => collect metrics on all nodes
+	- Grafana => Virtualize the metrics
+
+
+	Ansible for creating aws instances
+		- Ansible vs Terraform
+		

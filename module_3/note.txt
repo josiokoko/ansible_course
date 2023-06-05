@@ -1,0 +1,43 @@
+Requirements
+- Install aws collection (aws plugin)
+
+	ansible-galaxy collection install amazon.aws 
+
+	ansible-galaxy collection list amazon.aws 
+
+- Install boto3 
+	boto-core
+	
+	sudo pip3 install boto3
+
+Setup our dynamic inventory
+	aws_profile:
+		cat ~/.aws/credentials
+
+		[default]
+		aws_acces_key=...
+
+
+Verify our dynamic inventory
+	ansible-inventory --graph
+	ansible-inventory --list
+
+https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_ec2_inventory.html#id3
+
+
+Ad-hoc command
+
+	- specify user with -u flag
+	- specify group name 
+
+	ansible tag_Name_Amazon2 -u ec2-user -m shell -a "date"
+
+Playbook
+- install apache on Ubuntu and Amazon2
+
+	Ubuntu:
+		- apache2 
+		- modules: apt or package
+	Amazon2 
+		- httpd
+		- modules: yum or package

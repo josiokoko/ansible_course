@@ -1,0 +1,19 @@
+---
+- name: Using AWS EC2 Module
+  hosts: localhost
+  connection: local
+  gather_facts: no
+   
+  tasks:
+    - name: Create a new EC2 key
+      ec2_key:
+        name: raycoy-ansible-key
+        region: us-east-1
+      register: ec2_key_result
+    
+    - name: Save private key to local current directory
+      copy:
+        content: "{{ ec2_key_result.key.private_key }}"
+        dest: "./server_key.pem"
+        mode: 0400
+      when: ec2_key_result.changed

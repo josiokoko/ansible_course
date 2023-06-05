@@ -1,0 +1,19 @@
+---
+- name: Ansible Dynamic Inventory with Ubuntu
+  gather_facts: true
+  user: "{{ user }}"
+  vars:
+    users:
+      - User1: 
+          - joe
+          - Jane
+      - User2:
+          - Chi
+          - Efosa
+  become: true
+  hosts: aws_ec2 # all
+  tasks:
+    - name: user names
+      debug:
+        msg: "{{ item.User1.0 }}"
+      loop: "{{ users }}"

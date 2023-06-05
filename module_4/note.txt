@@ -1,0 +1,16 @@
+Ansible Facts
+	ansible-playbook playbook.yml --limit 34.233.123.22
+
+	Instal apache on all your server
+		- RedHat => Amazon => httpd => yum
+		- Debain => Ubuntu => apache2 => apt
+	
+	Strategic options:
+		(1) Create two plays
+			- each for each server group
+		
+		(2) Conditional execution by taking advantege of Ansible facts
+
+		(3) Conditional statement (e.g. when)
+
+	package module behaves like yum or apt or dnf depending on your OS

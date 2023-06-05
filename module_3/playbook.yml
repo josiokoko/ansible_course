@@ -1,0 +1,16 @@
+---
+- name: Ansible Dynamic Inventory with Ubuntu
+  gather_facts: true
+  user: ubuntu
+  hosts: all # aws_ec2
+  tasks:
+    - name: Run shell command
+      command: "ping www.google.com -c 10"
+
+- name: Ansible Dynamic Inventory with Amazon2
+  gather_facts: true
+  user: ec2-user
+  hosts: tag_Name_Amazon2
+  tasks:
+    - name: Run shell command
+      command: "ping www.google.com -c 10"

@@ -1,0 +1,12 @@
+- name: Post request to SM to verify accessibility
+  uri:
+    url: "{{ service_manager_authorization.uri_scheme }}://{{ service_manager_authorization.host }}:{{ service_manager_authorization.port }}{{ service_manager_authorization.thrift_url }}"
+    method: POST
+    body: "systemUser='loginId=feed-0adf9f45-1ad4-4f77-bfc2-281d6db3eddd@mailarchivespool1.glo.com'&associatedEntity='entityId=0adf9f45-1ad4-4f77-bfc2-281d6db3eddd,entityType=MessageFeed'"
+    body_format: json
+    timeout: 5
+  ignore_errors: yes
+  when: check_sm_authorization_output.failed == false
+  tags:
+    - network_check
+    - sm_check

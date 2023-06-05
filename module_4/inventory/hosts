@@ -1,0 +1,17 @@
+[monitorserver]
+54.208.99.112 ansible_user=ec2-user
+
+[amazonservers]
+34.233.123.22
+3.95.207.117
+
+[amazonservers:vars]
+ansible_user=ec2-user
+
+
+[ubuntuservers]
+52.1.112.192
+54.165.224.251
+
+[ubuntuservers:vars]
+ansible_user=ubuntu

@@ -1,0 +1,30 @@
+---
+- name: Ansible Dynamic Inventory with Ubuntu
+  gather_facts: true
+  user: "{{ user }}"
+  become: true
+  vars_files:
+    - my_new_vars.yml
+  hosts: aws_ec2 # all
+  tasks:
+    # - name: Run shell command
+    #   command: "ping www.google.com -c 10"
+
+    # - name: Install Apache
+    #   package: 
+    #     name: "{{ apache }}"
+    #     state: present
+      
+    - name: Uninstall Apache
+      package: 
+        name: "{{ apache }}"
+        autoremove: yes
+        state: absent
+    
+    - name: Server info
+      debug:
+        var: ansible_os_family
+    
+    - name: Server distro
+      debug:
+        var: ansible_facts['distribution']
